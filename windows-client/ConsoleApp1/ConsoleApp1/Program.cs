@@ -11,14 +11,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Connect("127.0.0.1", "ssss");
+            Connect("192.168.31.245", "ssss");
         }
 
         static void Connect(string server, string message)
         {
             try
             {
-                int port = 13000;
+                int port = 11000;
                 TcpClient client = new TcpClient(server, port);
                 byte[] data = Encoding.ASCII.GetBytes(message);
                 NetworkStream stream = client.GetStream();
