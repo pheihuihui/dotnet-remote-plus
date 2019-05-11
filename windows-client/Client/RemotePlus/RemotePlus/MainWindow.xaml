@@ -6,10 +6,14 @@
         xmlns:local="clr-namespace:RemotePlus"
         xmlns:WPF="clr-namespace:VisioForge.Controls.UI.WPF;assembly=VisioForge.Controls.UI" x:Class="RemotePlus.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1200">
+        Title="MainWindow" Height="1300" Width="1800">
     <Grid>
 
-        <WPF:VideoCapture HorizontalAlignment="Left" Height="450" Margin="348,56,0,0" VerticalAlignment="Top" Width="800" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+        <WPF:VideoCapture Name="RemoteCapture" HorizontalAlignment="Left" Height="900" Margin="106,342,0,0" VerticalAlignment="Top" Width="1600" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" OnError="RemoteCapture_OnError"/>
+        <Button Name="PlayButton" Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="59,70,0,0" VerticalAlignment="Top" Width="108" Height="41"/>
+        <TextBox Name="LogBox" HorizontalAlignment="Left" Height="206" Margin="537,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="773"/>
+        <TextBox HorizontalAlignment="Left" Height="76" Margin="167,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="76" Margin="317,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
 
     </Grid>
 </Window>

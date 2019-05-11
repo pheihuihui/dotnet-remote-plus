@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VisioForge.Types;
 
 namespace RemotePlus
 {
@@ -23,6 +24,29 @@ namespace RemotePlus
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RemoteCapture.Video_Sample_Grabber_Enabled = true;
+            RemoteCapture.Audio_OutputDevice = "Default DirectSound Device";
+            RemoteCapture.Audio_RecordAudio = false;
+            RemoteCapture.Audio_PlayAudio = false;
+            RemoteCapture.Video_Renderer.Video_Renderer = VFVideoRendererWPF.WPF;
+
+            RemoteCapture.Video_CaptureDevice = "Live Streaming Video Device";
+            RemoteCapture.Audio_OutputDevice = "Default DirectSound Device";
+            RemoteCapture.Video_CaptureFormat = "1920x1080 MJPG, 24bit";
+
+            RemoteCapture.Video_FrameRate = 60.0;
+            RemoteCapture.Mode = VFVideoCaptureMode.VideoPreview;
+
+            RemoteCapture.Start();
+        }
+
+        private void RemoteCapture_OnError(object sender, ErrorsEventArgs e)
+        {
+            LogBox.Text += e.Message + Environment.NewLine;
         }
     }
 }
