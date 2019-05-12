@@ -48,5 +48,47 @@ namespace RemotePlus
         {
             LogBox.Text += e.Message + Environment.NewLine;
         }
+
+        private void RemoteCapture_MouseMove(object sender, MouseEventArgs e)
+        {
+            Pos_X.Text = ((int)e.GetPosition(RemoteCapture).X).ToString();
+            Pos_Y.Text = ((int)e.GetPosition(RemoteCapture).Y).ToString();
+        }
+
+        private void RemoteCapture_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void RemoteCapture_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void RemoteCapture_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void RemoteCapture_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 1)
+            {
+                Mouse_Status.Text = "Click";
+            }
+            else if (e.ClickCount == 2)
+            {
+                Mouse_Status.Text = "Double Click";
+            }
+            else if (e.ClickCount == 3)
+            {
+                Mouse_Status.Text = "Triple Click";
+            }
+        }
+
+        private void RemoteCapture_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Mouse_Status.Text = "Right Button Down";
+        }
     }
 }

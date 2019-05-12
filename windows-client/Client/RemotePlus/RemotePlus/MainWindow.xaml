@@ -9,11 +9,20 @@
         Title="MainWindow" Height="1300" Width="1800">
     <Grid>
 
-        <WPF:VideoCapture Name="RemoteCapture" HorizontalAlignment="Left" Height="900" Margin="106,342,0,0" VerticalAlignment="Top" Width="1600" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" OnError="RemoteCapture_OnError"/>
-        <Button Name="PlayButton" Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="59,70,0,0" VerticalAlignment="Top" Width="108" Height="41"/>
+        <WPF:VideoCapture 
+            Name="RemoteCapture" 
+            MouseMove="RemoteCapture_MouseMove" 
+            MouseDown="RemoteCapture_MouseDown"
+            MouseEnter="RemoteCapture_MouseEnter"
+            MouseLeave="RemoteCapture_MouseLeave"
+            MouseLeftButtonDown="RemoteCapture_MouseLeftButtonDown"
+            MouseRightButtonDown="RemoteCapture_MouseRightButtonDown"
+            HorizontalAlignment="Left" Height="900" Margin="106,342,0,0" VerticalAlignment="Top" Width="1600" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" OnError="RemoteCapture_OnError"/>
+        <Button Name="PlayButton" Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="85" Height="76"/>
         <TextBox Name="LogBox" HorizontalAlignment="Left" Height="206" Margin="537,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="773"/>
-        <TextBox HorizontalAlignment="Left" Height="76" Margin="167,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="76" Margin="317,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
+        <TextBox Name="Pos_X" HorizontalAlignment="Left" Height="76" Margin="167,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
+        <TextBox Name="Pos_Y" HorizontalAlignment="Left" Height="76" Margin="317,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="132" FontSize="24"/>
+        <TextBox Name="Mouse_Status" HorizontalAlignment="Left" Height="91" Margin="167,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="282" FontSize="24"/>
 
     </Grid>
 </Window>
