@@ -11,13 +11,12 @@ import SwiftUI
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var window: NSWindow!
     var menuIcon: NSStatusItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let statusBar = NSStatusBar.system
         menuIcon = statusBar.statusItem(withLength: NSStatusItem.squareLength)
-        menuIcon.button?.title = "R"
+        menuIcon.button?.title = "RP"
         let menu = NSMenu(title: "This Menu")
         menuIcon.menu = menu
 
@@ -29,8 +28,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         item_showPage.title = "Show page"
         item_showPage.action = #selector(AppDelegate.showPage)
 
+        let item_hideCursor = NSMenuItem()
+        item_hideCursor.title = "Hide cursor"
+        item_hideCursor.action = #selector(AppDelegate.hideCursor)
+        
+        let item_test = NSMenuItem()
+        item_test.title = "test"
+        item_test.action = #selector(AppDelegate.testMenu)
+
         menu.addItem(item_exit)
-        menu.addItem(item_showPage)
+        menu.addItem(item_hideCursor)
+        menu.addItem(item_test)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -41,6 +49,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return false
     }
 
+    @objc func hideCursor() {
+        NSCursor.hide()
+    }
+
     @objc func testMenu() -> Bool {
         let alert = NSAlert()
         alert.addButton(withTitle: "OK")
@@ -48,15 +60,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func showPage() {
-        let contentView = ContentView()
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+//        let contentView = ContentView()
+//        let window = NSWindow(
+//            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+//            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+//            backing: .buffered, defer: false)
+//        window.center()
+//        window.setFrameAutosaveName("Main Window")
+//        window.contentView = NSHostingView(rootView: contentView)
+//        window.makeKeyAndOrderFront(nil)
     }
 
     @objc func exitApp() {
